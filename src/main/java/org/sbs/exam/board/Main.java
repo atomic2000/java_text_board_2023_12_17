@@ -24,13 +24,22 @@ public class Main {
         String body = sc.nextLine();
 
         int id = articleLastId + 1;
-        System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
-        // articleLastId++;
-        articleLastId = id;
+
+        Article article = new Article();
+        article.id = id;
+        article.title = title;
+        article.body = body;
+
+        System.out.println("생성 된 게시물 객체 : " + article);
+        System.out.printf("%d번 게시물이 등록되었습니다.\n", article.id);
+        articleLastId++;
       }
       else if(cmd.equals("exit")) {
         System.out.println("프로그램을 종료합니다.");
         break;
+      }
+      else {
+        System.out.println("명령어를 다시 입력해주세요.");
       }
     }
 
@@ -38,4 +47,10 @@ public class Main {
 
     sc.close();
   }
+}
+
+class Article {
+  int id;
+  String title;
+  String body;
 }
