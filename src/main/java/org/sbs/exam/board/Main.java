@@ -18,13 +18,11 @@ public class Main {
     Article lastArticle = null;
     List<Article> articles = new ArrayList<>();
 
-    //테스트 게시물 데이터 3개 등록
-/*    articles.add(new Article(1, "제목1", "내용1"));
-    articles.add(new Article(2, "제목2", "내용2"));
-    articles.add(new Article(3, "제목3", "내용3"));*/
-    //테스트 게시물 데이터 3개 등록 끝
-
     makeTestData(articles);
+
+    if (articles.size() > 0) {
+      articleLastId = articles.get(articles.size() - 1).id;
+    }
 
     System.out.println("== 게시판 v 0.1 ==");
     System.out.println("== 게시판 시작 ==");
@@ -58,7 +56,12 @@ public class Main {
         System.out.println("-------------------");
         System.out.println("번호 / 제목");
 
-        for(Article article : articles) {
+/*        for(Article article : articles) {
+          System.out.printf("%d / %s\n", article.id, article.title);
+        }*/
+
+        for(int i = articles.size() - 1; i >= 0; i--) {
+          Article article = articles.get(i);
           System.out.printf("%d / %s\n", article.id, article.title);
         }
 
